@@ -1,3 +1,4 @@
+/* ベース（スマホ） */
 body, html {
   margin: 0;
   padding: 0;
@@ -6,23 +7,20 @@ body, html {
   position: relative;
   overflow: hidden;
 }
-
 .container {
   position: relative;
   width: 100%;
-  height: 90%; 
+  height: 90%;
 }
-
 .background {
   position: absolute;
   width: 120%;
   height: 80%;
-  top: 45%; 
+  top: 45%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 1;
 }
-
 .truck {
   position: absolute;
   z-index: 2;
@@ -32,41 +30,32 @@ body, html {
   top: 55%;
   transform: translateY(-50%);
 }
-
 .tatsuro {
   position: absolute;
   z-index: 2;
   max-height: 15%;
   max-width: 10%;
   left: calc(25px);
-  bottom: 125px; 
+  bottom: 125px;
 }
-
-.start-btn, .jump-btn, .reset-btn {
+.action-btn, .reset-btn {
   position: absolute;
   z-index: 3;
   font-size: 1rem;
   padding: 10px;
   cursor: pointer;
-  bottom: 50px; 
+  bottom: 50px;
 }
-
-.start-btn {
-  left: 35px;
+.action-btn {
+  left: 80px;
 }
-
-.jump-btn {
-  left: 130px;
-}
-
 .reset-btn {
-  left: 230px;
+  left: 220px;
 }
-
 .message {
   position: absolute;
   z-index: 3;
-  font-size: 0.7rem; 
+  font-size: 0.7rem;
   left: 50%;
   top: 30%;
   transform: translateX(-50%);
@@ -76,7 +65,6 @@ body, html {
   border-radius: 4px;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.25);
 }
-
 .rule-message {
   position: absolute;
   top: 20px;
@@ -84,9 +72,10 @@ body, html {
   transform: translateX(-50%);
   font-size: 1.2rem;
   font-weight: bold;
-  color: #333; /* 追加 */
-  text-align: center; /* 追加 */
-  text-shadow: 1px 1px #eee; /* 追加 */
+  color: #333;
+  text-align: center;
+  text-shadow: 1px 1px #eee;
+  white-space: nowrap;
 }
 .rule-message span {
   display: block;
@@ -94,12 +83,56 @@ body, html {
   font-weight: normal;
   margin-top: 5px;
 }
-.success {
-  color: green; 
-}
-.failure {
-  color: red; 
-}
-.no-guts {
-  color: black; 
+.success { color: green; }
+.failure { color: red; }
+.no-guts { color: black; }
+
+/* PC（768px以上） */
+@media (min-width: 768px) {
+  body, html {
+    width: 100%;
+    height: 100vh;
+  }
+  .container {
+    width: 750px;
+    height: 600px;
+    margin: 40px auto;
+    border: 2px solid #ccc;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #fff;
+  }
+  .background {
+    width: 110%;
+    height: 75%;
+    top: 48%;
+  }
+  .truck {
+    max-height: 18%;
+    max-width: 30%;
+    top: 52%;
+  }
+  .tatsuro {
+    max-height: 18%;
+    max-width: 8%;
+    bottom: 150px;
+  }
+  .action-btn, .reset-btn {
+    font-size: 1.2rem;
+    padding: 12px 20px;
+    bottom: 40px;
+  }
+  .action-btn {
+    left: 200px;
+  }
+  .reset-btn {
+    left: 420px;
+  }
+  .rule-message {
+    font-size: 1.4rem;
+    top: 24px;
+  }
+  .message {
+    font-size: 1rem;
+  }
 }
