@@ -36,7 +36,8 @@ function resetGame() {
   actionBtn.disabled = false;
 }
 
-actionBtn.addEventListener('click', () => {
+actionBtn.addEventListener('touchend', (e) => {
+  e.preventDefault();
   if (!isStarted) {
     // スタート処理
     isStarted = true;
@@ -80,7 +81,8 @@ actionBtn.addEventListener('click', () => {
   }
 });
 
-resetBtn.addEventListener('click', () => {
+resetBtn.addEventListener('touchend', (e) => {
+  e.preventDefault();
   resetGame();
 });
 
