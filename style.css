@@ -71,12 +71,13 @@ body, html {
   top: 20px;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 1.2rem;
+  font-size: 0.9rem;
   font-weight: bold;
   color: #333;
   text-align: center;
   text-shadow: 1px 1px #eee;
-  white-space: nowrap;
+  white-space: normal;
+  width: 90%;
 }
 .rule-message span {
   display: block;
