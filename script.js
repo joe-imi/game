@@ -36,10 +36,8 @@ function resetGame() {
   actionBtn.disabled = false;
 }
 
-actionBtn.addEventListener('touchend', (e) => {
-  e.preventDefault();
+function handleAction() {
   if (!isStarted) {
-    // スタート処理
     isStarted = true;
     actionBtn.textContent = '飛び出し';
     const speed = getRandomSpeed();
@@ -47,7 +45,6 @@ actionBtn.addEventListener('touchend', (e) => {
       truck.style.right = `${parseInt(truck.style.right || 0) + speed}px`;
     }, 10);
   } else {
-    // 飛び出し処理
     actionBtn.disabled = true;
     clearInterval(truckInterval);
     tatsuro.style.bottom = '30%';
@@ -79,11 +76,23 @@ actionBtn.addEventListener('touchend', (e) => {
       }
     }, 500);
   }
-});
+}
 
-resetBtn.addEventListener('touchend', (e) => {
-  e.preventDefault();
-  resetGame();
-});
+// スマホとPCの両方に対応（二重発火防止）
+function addTapHandler(element, handler) {
+  let touched = false;
+  element.addEventListener('touchend', (e) => {
+    e.preventDefault();
+    touched = true;
+    handler();
+  });
+  element.addEventListener('click', () => {
+    if (!touched) handler();
+    touched = false;
+  });
+}
+
+addTapHandler(actionBtn, handleAction);
+addTapHandler(resetBtn, resetGame);
 
 resetGame();
